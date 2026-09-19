@@ -14,10 +14,10 @@ namespace Microsoft.Diagnostics.Tools.GCDump
         {
             RootCommand rootCommand = new()
             {
-                CollectCommandHandler.CollectCommand(),
+                CollectCommandHandler.CollectCommandWithFormat(),
                 ProcessStatusCommandHandler.ProcessStatusCommand("Lists the dotnet processes that gcdumps can be collected from."),
                 ReportCommandHandler.ReportCommand(),
-                ConvertCommandHandler.ConvertCommand()
+                ConvertCommandHandler.ConvertCommandWithFormat()
             };
 
             return rootCommand.Parse(args).InvokeAsync();

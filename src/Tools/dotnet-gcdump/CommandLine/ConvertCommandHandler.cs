@@ -10,7 +10,7 @@ using Microsoft.Internal.Common;
 
 namespace Microsoft.Diagnostics.Tools.GCDump
 {
-    internal static class ConvertCommandHandler
+    internal static partial class ConvertCommandHandler
     {
         public static int ConvertFile(FileInfo input, string output, bool verbose)
         {

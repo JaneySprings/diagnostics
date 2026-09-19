@@ -13,7 +13,7 @@ using Microsoft.Internal.Common.Utils;
 
 namespace Microsoft.Diagnostics.Tools.GCDump
 {
-    internal static class CollectCommandHandler
+    internal static partial class CollectCommandHandler
     {
         /// <summary>
         /// Collects a gcdump from a currently running process.
@@ -69,6 +69,7 @@ namespace Microsoft.Diagnostics.Tools.GCDump
                     if (TryCollectMemoryGraph(ct, processId, diagnosticPort, timeout, verbose, out MemoryGraph memoryGraph))
                     {
                         GCHeapDump.WriteMemoryGraph(memoryGraph, outputFileInfo.FullName, "dotnet-gcdump");
+                        ConvertCollectedDump(memoryGraph, outputFileInfo.FullName);
                         return true;
                     }
 
